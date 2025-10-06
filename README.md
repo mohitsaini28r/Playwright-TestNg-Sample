@@ -2,14 +2,7 @@
 
 This project demonstrates how to run Playwright tests on LambdaTest automation platform using TestNG framework.
 
-## Prerequisites
-
-1. **Java 18** - Make sure you have Java 18 installed to test it locally using mvn, if you dont have it you can still directly trigger it on hyperexecute using runtime which is set in yaml.
-2. **LambdaTest Account** - You need a LambdaTest account with valid credentials
-3. **LTCapability.java** - It is the file where we are setting up the capabilities.
-4. **BaseTest.java** - It is the file where we are setting up the driver and the hooks.
-
-## Setup
+## Prerequisites Setup
 
 ### 1. Environment Variables
 
@@ -44,6 +37,13 @@ If you are currently using `Win`
 ```
 curl -O https://downloads.lambdatest.com/hyperexecute/windows/hyperexecute.exe
 ```
+
+## Overview
+
+1. **Java 18** - Make sure you have Java 18 installed to test it locally using mvn, if you dont have it you can still directly trigger it on hyperexecute using runtime which is set in yaml.
+2. **LambdaTest Account** - You need a LambdaTest account with valid credentials
+3. **LTCapability.java** - It is the file where we are setting up the capabilities.
+4. **BaseTest.java** - It is the file where we are setting up the driver and the hooks.
 
 
 
