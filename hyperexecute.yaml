@@ -1,0 +1,35 @@
+---
+version: 0.1
+globalTimeout: 150
+testSuiteTimeout: 150
+testSuiteStep: 150
+
+runson: win
+
+autosplit: true
+retryOnFailure: false
+maxRetries: 1
+concurrency: 2
+
+runtime:
+  - language: java
+    version: "18"
+
+
+cacheKey: '{{ checksum "pom.xml" }}'
+cacheDirectories:
+  - .m2
+
+pre:
+  - npm install playwright@1.48.0 --save-exact
+  - mvn -Dmaven.repo.local=./.m2 -Dmaven.test.skip=true clean install
+  - mkdir reports/allure-results
+
+testDiscovery:
+  type: raw
+  mode: dynamic
+  command: grep -rl '@Test' src/test/java | awk -F'/' '{print substr($NF, 1, length($NF)-5)}'
+
+testRunnerCommand: mvn test `-Dplatname=win `-Dmaven.repo.local=./.m2 `-Dtest=$test `-Dexec.skip=true surefire-report:report
+
+jobLabel: [playwright-testng, win, autosplit]
