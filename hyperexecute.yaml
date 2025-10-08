@@ -23,7 +23,6 @@ cacheDirectories:
 pre:
   - npm install playwright@1.48.0 --save-exact
   - mvn -Dmaven.repo.local=./.m2 -Dmaven.test.skip=true clean install
-  - mkdir reports/allure-results
 
 testDiscovery:
   type: raw
